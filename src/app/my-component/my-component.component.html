@@ -1,0 +1,44 @@
+<!--<input [(ngModel)]="id">-->
+<!--<input readonly [(ngModel)]="id">-->
+
+<!--<p>TEST id est {{id}}</p>-->
+
+<section class="w-100 p-4 pb-2 d-flex justify-content-center">
+  <div class="form-outline" style="width: 22rem;" style="text-align: center;">
+    <label class="form-label" for="search" style="margin-left: 0px;">Which Pokemon are you searching for?</label>
+    <input type="text" [(ngModel)]="searchPokeName" id="search" class="form-control">
+    <div class="form-notch">
+      <div class="form-notch-leading" style="width: 9px;"></div>
+      <div class="form-notch-middle" style="width: 78.4px;"></div>
+      <div class="form-notch-trailing"></div>
+    </div>
+  </div>
+</section>
+
+<section class="w-100 p-2 pb-3 d-flex justify-content-center">
+  <div class="col-md-4">
+    <select [(ngModel)]="selectedPokeId" class="form-select">
+      <option [value]="poke.id" *ngFor="let poke of pokes | filterPokemonPipe : 'name' : searchPokeName">
+        {{poke.name}}
+      </option>
+    </select>
+  </div>
+</section>
+
+
+<!--<p>MON selected POKE id est {{selectedPokeId}}</p>-->
+
+
+<section class="w-100 p-2 pb-2 d-flex justify-content-center">
+  <button (click)="go()" class="btn btn-primary btn-lg">GO !</button>
+</section>
+
+
+<div *ngIf="pokeDetail">
+  <app-poke-detail [detail]="pokeDetail"></app-poke-detail>
+</div>
+
+
+<!--<option [value]="poke.id" *ngFor="let poke of pokes, first as isFirst;">-->
+<!--  {{poke.name}} <span *ngIf="isFirst">default</span>-->
+

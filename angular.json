@@ -25,12 +25,40 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "assets": [
+                {
+                  "glob": "favicon.ico",
+                  "input": "src",
+                  "output": "/"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "src/assets",
+                  "output": "/assets"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "src/images",
+                  "output": "/images"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -60,6 +88,31 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "assets": [
+                {
+                  "glob": "favicon.ico",
+                  "input": "src",
+                  "output": "/"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "src/assets",
+                  "output": "/assets"
+                },
+                {
+                  "glob": "**/*",
+                  "input": "src/images",
+                  "output": "/images"
+                }
+              ],
               "browserTarget": "pokdemo:build:production"
             },
             "development": {
@@ -87,12 +140,18 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
